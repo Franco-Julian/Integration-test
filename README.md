@@ -1,50 +1,37 @@
-# Welcome to your Expo app 👋
+# HomeScreen Integration Test Project
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This project demonstrates the integration testing of a React Native `HomeScreen` component, focusing on testing the functionality of a modal and navigation without mocking the navigation. The purpose of this project is to provide a practical example of how to test complex user interactions and navigation in a React Native application.
 
-## Get started
+## Project Overview
 
-1. Install dependencies
+The main component in this project is `HomeScreen`. This component includes:
+- A button that navigates to an `ItemScreen`.
+- A button that opens a modal.
+- A modal that contains a text message and a button to close the modal.
 
-   ```bash
-   npm install
-   ```
+### Component: HomeScreen
 
-2. Start the app
+The `HomeScreen` component is designed as follows:
 
-   ```bash
-    npx expo start
-   ```
+- It has two main buttons: one for navigation and one for opening the modal.
+- When the modal is open, it displays a message and a button to close it.
 
-In the output, you'll find options to open the app in a
+### Integration Tests
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+The project includes integration tests to verify the functionality of the `HomeScreen` component using `@testing-library/react-native`. These tests cover:
+1. Opening and closing the modal.
+2. Navigating to `ItemScreen`.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Tests Description
 
-## Get a fresh project
+The tests are grouped under a `describe` block to clearly indicate that they are testing the `HomeScreen` component.
 
-When you're ready, run:
+#### 1. Modal Functionality
 
-```bash
-npm run reset-project
-```
+- **Test:** Opens the modal and verifies its presence.
+- **Test:** Presses the internal button within the modal to close it and verifies that the modal is no longer visible.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+#### 2. Navigation to ItemScreen
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- **Test:** Presses the button to navigate to `ItemScreen`.
+- **Test:** Verifies the navigation by checking for the presence of an element on `ItemScreen`.
